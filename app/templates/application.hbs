@@ -1,5 +1,316 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
+<PaperSidenavContainer @class="inner-sidenav">
+  <PaperSidenav @class="md-whiteframe-z2 secondary-color site-side-nav" @name="left" @open={{leftSideBarOpen}} @onToggle={{action (mut leftSideBarOpen)}}>
+    <PaperToolbar as |toolbar|>
+      <toolbar.tools @class="secondary-color-light site-side-nav-profile">
+        <div class="app-name">
+          The Forum
+        </div>
+        <div class="profile-details">
+          <div class="avatar">
+            {{paper-icon "person" size=48}}
+          </div>
+          <div>
+            <div class="name">Jane Doe</div>
+            <div class="title">Full member</div>
+          </div>
+        </div>
+        <div class="socials">
+          <PaperButton class="margin-0 padding-0" @iconButton={{true}}>{{paper-icon "chat" size=18}}</PaperButton>
+          <PaperButton class="margin-0 padding-0" @iconButton={{true}}>{{paper-icon "business" size=18}}</PaperButton>
+          <PaperButton class="margin-0 padding-0" @iconButton={{true}}>{{paper-icon "settings" size=18}}</PaperButton>
+          <PaperButton class="margin-0 padding-0" @iconButton={{true}}>{{paper-icon "person" size=18}}</PaperButton>
+        </div>
+      </toolbar.tools>
+    </PaperToolbar>
+    <PaperContent class="secondary-color menu-list" @padding={{true}}>
+      <PaperButton @noink={{true}} @raised={{false}} class="menu-item">
+        <div>News</div>
+        <div class="sub">264 posts</div>
+        <PaperDivider class="divider-light" />
+      </PaperButton>
+      <PaperButton @noink={{true}} @raised={{false}} class="menu-item menu-item-active">
+        <div>Works</div>
+        <div class="sub">352 posts</div>
+        <PaperDivider class="divider-light" />
+      </PaperButton>
+      <PaperButton @noink={{true}} @raised={{false}} class="menu-item">
+        <div>Culture</div>
+        <div class="sub">78 posts</div>
+        <PaperDivider class="divider-light" />
+      </PaperButton>
+      <PaperButton @noink={{true}} @raised={{false}} class="menu-item">
+        <div>General</div>
+        <div class="sub">101 posts</div>
+        <PaperDivider class="divider-light" />
+      </PaperButton>
+      <PaperButton @noink={{true}} @raised={{false}} class="menu-item">
+        <div>Projects</div>
+        <div class="sub">89 posts</div>
+        <PaperDivider class="divider-light" />
+      </PaperButton>
+      <PaperButton @noink={{true}} @raised={{false}} class="menu-item">
+        <div>Support</div>
+        <div class="sub">7 posts</div>
+      </PaperButton>
+    </PaperContent>
+  </PaperSidenav>
 
-{{outlet}}
+  <PaperCardContent @class="flex">
+    <div class="layout-fill layout-align-start-left layout-column" style="height: 100vh">
+      <div class="layout-row flex">
+
+
+        {{!-- Main Screen --}}
+        <div class="flex-gt-xs-50 flex-100 main-window primary-color">
+
+          <PaperSidenavToggle @name="left" as |toggleAction|>
+            <PaperButton @classNames="hide-gt-sm show-menu-icon" @iconButton={{true}} @onClick={{action toggleAction}}>
+              {{paper-icon "menu"}}
+            </PaperButton>
+          </PaperSidenavToggle>
+
+          <div class="header">
+            <h2>Works</h2>
+          </div>
+          <PaperDivider class="divider-dark" />
+
+          <div class="posts">
+            <PaperItem @class="md-2-line post">
+              <img src="https://place-hold.it/100x100/fff/666" alt="Image placeholder" class="md-avatar">
+              <div class="md-list-item-text">
+                <h4 class="post-title">Hammock beard marfa mixtape</h4>
+                <div class="post-description">Started by <span class="author">John Doe</span> <span class="separator">&middot;</span> 14 replies <span class="separator">&middot;</span> Last reply 17 hours ago by <span class="author">Jane Doe</span></div>
+              </div>
+            </PaperItem>
+            <PaperDivider class="divider-dark" />
+            <PaperItem @class="md-2-line post">
+              <img src="https://place-hold.it/100x100/fff/666" alt="Image placeholder" class="md-avatar">
+              <div class="md-list-item-text">
+                <h4 class="post-title">Hammock beard marfa mixtape</h4>
+                <div class="post-description">Started by <span class="author">John Doe</span> <span class="separator">&middot;</span> 14 replies <span class="separator">&middot;</span> Last reply 17 hours ago by <span class="author">Jane Doe</span></div>
+              </div>
+            </PaperItem>
+            <PaperDivider class="divider-dark" />
+            <PaperItem @class="md-2-line post">
+              <img src="https://place-hold.it/100x100/fff/666" alt="Image placeholder" class="md-avatar">
+              <div class="md-list-item-text">
+                <h4 class="post-title">Hammock beard marfa mixtape</h4>
+                <div class="post-description">Started by <span class="author">John Doe</span> <span class="separator">&middot;</span> 14 replies <span class="separator">&middot;</span> Last reply 17 hours ago by <span class="author">Jane Doe</span></div>
+              </div>
+            </PaperItem>
+            <PaperDivider class="divider-dark" />
+            <PaperItem @class="md-2-line post">
+              <img src="https://place-hold.it/100x100/fff/666" alt="Image placeholder" class="md-avatar">
+              <div class="md-list-item-text">
+                <h4 class="post-title">Hammock beard marfa mixtape</h4>
+                <div class="post-description">Started by <span class="author">John Doe</span> <span class="separator">&middot;</span> 14 replies <span class="separator">&middot;</span> Last reply 17 hours ago by <span class="author">Jane Doe</span></div>
+              </div>
+            </PaperItem>
+            <PaperDivider class="divider-dark" />
+            <PaperItem @class="md-2-line post">
+              <img src="https://place-hold.it/100x100/fff/666" alt="Image placeholder" class="md-avatar">
+              <div class="md-list-item-text">
+                <h4 class="post-title">Hammock beard marfa mixtape</h4>
+                <div class="post-description">Started by <span class="author">John Doe</span> <span class="separator">&middot;</span> 14 replies <span class="separator">&middot;</span> Last reply 17 hours ago by <span class="author">Jane Doe</span></div>
+              </div>
+            </PaperItem>
+            <PaperDivider class="divider-dark" />
+            <PaperItem @class="md-2-line post">
+              <img src="https://place-hold.it/100x100/fff/666" alt="Image placeholder" class="md-avatar">
+              <div class="md-list-item-text">
+                <h4 class="post-title">Hammock beard marfa mixtape</h4>
+                <div class="post-description">Started by <span class="author">John Doe</span> <span class="separator">&middot;</span> 14 replies <span class="separator">&middot;</span> Last reply 17 hours ago by <span class="author">Jane Doe</span></div>
+              </div>
+            </PaperItem>
+            <PaperDivider class="divider-dark" />
+            <PaperItem @class="md-2-line post">
+              <img src="https://place-hold.it/100x100/fff/666" alt="Image placeholder" class="md-avatar">
+              <div class="md-list-item-text">
+                <h4 class="post-title">Hammock beard marfa mixtape</h4>
+                <div class="post-description">Started by <span class="author">John Doe</span> <span class="separator">&middot;</span> 14 replies <span class="separator">&middot;</span> Last reply 17 hours ago by <span class="author">Jane Doe</span></div>
+              </div>
+            </PaperItem>
+            <PaperDivider class="divider-dark" />
+            <PaperItem @class="md-2-line post">
+              <img src="https://place-hold.it/100x100/fff/666" alt="Image placeholder" class="md-avatar">
+              <div class="md-list-item-text">
+                <h4 class="post-title">Hammock beard marfa mixtape</h4>
+                <div class="post-description">Started by <span class="author">John Doe</span> <span class="separator">&middot;</span> 14 replies <span class="separator">&middot;</span> Last reply 17 hours ago by <span class="author">Jane Doe</span></div>
+              </div>
+            </PaperItem>
+            <PaperDivider class="divider-dark" />
+            <PaperItem @class="md-2-line post">
+              <img src="https://place-hold.it/100x100/fff/666" alt="Image placeholder" class="md-avatar">
+              <div class="md-list-item-text">
+                <h4 class="post-title">Hammock beard marfa mixtape</h4>
+                <div class="post-description">Started by <span class="author">John Doe</span> <span class="separator">&middot;</span> 14 replies <span class="separator">&middot;</span> Last reply 17 hours ago by <span class="author">Jane Doe</span></div>
+              </div>
+            </PaperItem>
+            <PaperDivider class="divider-dark" />
+            <PaperItem @class="md-2-line post">
+              <img src="https://place-hold.it/100x100/fff/666" alt="Image placeholder" class="md-avatar">
+              <div class="md-list-item-text">
+                <h4 class="post-title">Hammock beard marfa mixtape</h4>
+                <div class="post-description">Started by <span class="author">John Doe</span> <span class="separator">&middot;</span> 14 replies <span class="separator">&middot;</span> Last reply 17 hours ago by <span class="author">Jane Doe</span></div>
+              </div>
+            </PaperItem>
+            <PaperDivider class="divider-dark" />
+            <PaperDivider class="divider-dark" />
+            <PaperItem @class="md-2-line post">
+              <img src="https://place-hold.it/100x100/fff/666" alt="Image placeholder" class="md-avatar">
+              <div class="md-list-item-text">
+                <h4 class="post-title">Hammock beard marfa mixtape</h4>
+                <div class="post-description">Started by <span class="author">John Doe</span> <span class="separator">&middot;</span> 14 replies <span class="separator">&middot;</span> Last reply 17 hours ago by <span class="author">Jane Doe</span></div>
+              </div>
+            </PaperItem>
+            <PaperDivider class="divider-dark" />
+            <PaperDivider class="divider-dark" />
+            <PaperItem @class="md-2-line post">
+              <img src="https://place-hold.it/100x100/fff/666" alt="Image placeholder" class="md-avatar">
+              <div class="md-list-item-text">
+                <h4 class="post-title">Hammock beard marfa mixtape</h4>
+                <div class="post-description">Started by <span class="author">John Doe</span> <span class="separator">&middot;</span> 14 replies <span class="separator">&middot;</span> Last reply 17 hours ago by <span class="author">Jane Doe</span></div>
+              </div>
+            </PaperItem>
+            <PaperDivider class="divider-dark" />
+            <PaperDivider class="divider-dark" />
+            <PaperItem @class="md-2-line post">
+              <img src="https://place-hold.it/100x100/fff/666" alt="Image placeholder" class="md-avatar">
+              <div class="md-list-item-text">
+                <h4 class="post-title">Hammock beard marfa mixtape</h4>
+                <div class="post-description">Started by <span class="author">John Doe</span> <span class="separator">&middot;</span> 14 replies <span class="separator">&middot;</span> Last reply 17 hours ago by <span class="author">Jane Doe</span></div>
+              </div>
+            </PaperItem>
+            <PaperDivider class="divider-dark" />
+            <PaperDivider class="divider-dark" />
+            <PaperItem @class="md-2-line post">
+              <img src="https://place-hold.it/100x100/fff/666" alt="Image placeholder" class="md-avatar">
+              <div class="md-list-item-text">
+                <h4 class="post-title">Hammock beard marfa mixtape</h4>
+                <div class="post-description">Started by <span class="author">John Doe</span> <span class="separator">&middot;</span> 14 replies <span class="separator">&middot;</span> Last reply 17 hours ago by <span class="author">Jane Doe</span></div>
+              </div>
+            </PaperItem>
+            <PaperDivider class="divider-dark" />
+            <PaperDivider class="divider-dark" />
+            <PaperItem @class="md-2-line post">
+              <img src="https://place-hold.it/100x100/fff/666" alt="Image placeholder" class="md-avatar">
+              <div class="md-list-item-text">
+                <h4 class="post-title">Hammock beard marfa mixtape</h4>
+                <div class="post-description">Started by <span class="author">John Doe</span> <span class="separator">&middot;</span> 14 replies <span class="separator">&middot;</span> Last reply 17 hours ago by <span class="author">Jane Doe</span></div>
+              </div>
+            </PaperItem>
+            <PaperDivider class="divider-dark" />
+            <div style="height: 50px" />
+          </div>            
+
+          {{#if showAddPostModal}}
+            <PaperDialog @class="flex-gt-xs-50" @fullscreen={{true}} @onClose={{action "closePromptDialog"}} @origin={{dialogOrigin}}>
+              <PaperToolbar>
+                <PaperToolbarTools @class="secondary-color-light">
+                  <span class="flex"></span>
+                  <PaperButton @iconButton={{true}} @onClick={{action "closePromptDialog"}}><PaperIcon @icon="close" /></PaperButton>
+                </PaperToolbarTools>
+              </PaperToolbar>
+              <PaperDialogContent>
+                <h2 class="md-title">Form Title</h2>
+                <PaperInput @placeholder="Title" @autofocus={{true}} @block={{true}} @value={{title}} @onChange={{action (mut title)}} />
+                <PaperInput @placeholder="Compose" @textarea={{true}} @block={{true}} @label="Content" @maxlength={{1000}} @passThru={{hash rows=3 maxRows=3}} @value={{body}} @onChange={{action (mut body)}} />
+              </PaperDialogContent>
+
+              <PaperDialogActions @class="layout-row">
+                <span class="flex"></span>
+                <PaperButton @primary={{true}} @onClick={{action "closePromptDialog"}}>Cancel</PaperButton>
+                <PaperButton @raised={{true}} @primary={{true}} @onClick={{action "savePost" title}}>Save Post</PaperButton>
+              </PaperDialogActions>
+
+            </PaperDialog>
+          {{/if}}
+          <PaperButton class="fab" @raised={{true}} @fab={{true}} @secondary={{true}} onClick={{action (mut showAddPostModal) true}}>{{paper-icon "add"}}</PaperButton>
+        </div>
+
+
+        {{!-- Details Screen --}}
+        <div class="flex-gt-xs-50 flex-0 details-window">
+          <div class="header">
+            <h4 class="title">Hammock beard marfa mixtape, hoodie unicorn swag pabst 3 wolf moon.</h4>
+            <PaperButton @classNames="hide-ls-sm" @iconButton={{true}}>
+              {{paper-icon "close"}}
+            </PaperButton>
+          </div>
+          <div class="details">
+            <PaperItem @class="md-2-line">
+              <img src="https://place-hold.it/100x100/666/fff" alt="Image placeholder" class="md-avatar">
+              <div class="md-list-item-text">
+                <div class="post-description">Started by <span class="author">John Doe</span></div>
+                <div class="post-description">on <span class="date">17th January 2015</span></div>
+              </div>
+            </PaperItem>
+          </div>
+          <div class="post-content">
+            Hammock beard marfa mixtape, hoodie unicorn swag pabst 3 wolf moon. Farm-to-table gochujang etsy put a bird on it, affogato PBR&B snackwave keffiyeh chicharrones wolf normcore knausgaard gluten-free post-ironic disrupt. Air plant semiotics taxidermy, fanny pack portland put a bird on it mlkshk godard YOLO hashtag cardigan keytar street art schlitz echo park. Butcher gochujang copper mug tbh, vaporware microdosing slow-carb synth af gluten-free tumblr pug taiyaki cronut. Art party pinterest kogi austin, keytar unicorn cliche. Gochujang banh mi hot chicken chia poutine keffiyeh deep v activated charcoal occupy.
+          </div>
+
+          <PaperDivider class="divider-dark" />
+
+          <div class="comments">
+            <PaperSubheader>Comments</PaperSubheader>
+            <PaperItem @class="md-2-line">
+              <img src="https://place-hold.it/100x100/666/fff" alt="Image placeholder" class="md-avatar">
+              <div class="md-list-item-text">
+                <div class="post-description"><span class="author">John Doe</span></div>
+                <div class="post-description">on <span class="date">17th January 2015</span></div>
+              </div>
+            </PaperItem>
+            <div class="post-content">
+              Air plant semiotics taxidermy, fanny pack portland put a bird on it mlkshk godard YOLO hashtag cardigan keytar street art schlitz echo park. Butcher gochujang copper mug tbh, vaporware microdosing slow-carb synth af gluten-free tumblr pug taiyaki cronut.
+            </div>
+
+            <PaperItem @class="md-2-line">
+              <img src="https://place-hold.it/100x100/666/fff" alt="Image placeholder" class="md-avatar">
+              <div class="md-list-item-text">
+                <div class="post-description"><span class="author">John Doe</span></div>
+                <div class="post-description">on <span class="date">17th January 2015</span></div>
+              </div>
+            </PaperItem>
+            <div class="post-content">
+              Air plant semiotics taxidermy, fanny pack portland put a bird on it mlkshk godard YOLO hashtag cardigan keytar street art schlitz echo park. Butcher gochujang copper mug tbh, vaporware microdosing slow-carb synth af gluten-free tumblr pug taiyaki cronut.
+            </div>
+
+            <PaperItem @class="md-2-line">
+              <img src="https://place-hold.it/100x100/666/fff" alt="Image placeholder" class="md-avatar">
+              <div class="md-list-item-text">
+                <div class="post-description"><span class="author">John Doe</span></div>
+                <div class="post-description">on <span class="date">17th January 2015</span></div>
+              </div>
+            </PaperItem>
+            <div class="post-content">
+              Air plant semiotics taxidermy, fanny pack portland put a bird on it mlkshk godard YOLO hashtag cardigan keytar street art schlitz echo park. Butcher gochujang copper mug tbh, vaporware microdosing slow-carb synth af gluten-free tumblr pug taiyaki cronut.
+            </div>
+
+            <PaperItem @class="md-2-line">
+              <img src="https://place-hold.it/100x100/666/fff" alt="Image placeholder" class="md-avatar">
+              <div class="md-list-item-text">
+                <div class="post-description"><span class="author">John Doe</span></div>
+                <div class="post-description">on <span class="date">17th January 2015</span></div>
+              </div>
+            </PaperItem>
+            <div class="post-content">
+              Air plant semiotics taxidermy, fanny pack portland put a bird on it mlkshk godard YOLO hashtag cardigan keytar street art schlitz echo park. Butcher gochujang copper mug tbh, vaporware microdosing slow-carb synth af gluten-free tumblr pug taiyaki cronut.
+            </div>
+
+            <PaperItem @class="md-2-line">
+              <img src="https://place-hold.it/100x100/666/fff" alt="Image placeholder" class="md-avatar">
+              <div class="md-list-item-text">
+                <div class="post-description"><span class="author">John Doe</span></div>
+                <div class="post-description">on <span class="date">17th January 2015</span></div>
+              </div>
+            </PaperItem>
+            <div class="post-content">
+              Air plant semiotics taxidermy, fanny pack portland put a bird on it mlkshk godard YOLO hashtag cardigan keytar street art schlitz echo park. Butcher gochujang copper mug tbh, vaporware microdosing slow-carb synth af gluten-free tumblr pug taiyaki cronut.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </PaperCardContent>
+</PaperSidenavContainer>

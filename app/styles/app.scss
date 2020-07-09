@@ -1,0 +1,298 @@
+// Generated from http://mcg.mbitson.com/
+$primary-color: (
+  '50': #ecf0f1,
+  '100': #cfdadd,
+  '200': #afc2c6,
+  '300': #8ea9af,
+  '400': #76969d,
+  '500': #5e848c,
+  '600': #567c84,
+  '700': #4c7179,
+  '800': #42676f,
+  '900': #31545c,
+  'A100': #aaefff,
+  'A200': #77e5ff,
+  'A400': #44dbff,
+  'A700': #2ad7ff,
+  'contrastDefaultColor': #ffffff,
+);
+
+$secondary-color: (
+  '50': #eaf6f6,
+  '100': #cae9e8,
+  '200': #a6dbd8,
+  '300': #82ccc8,
+  '400': #68c1bd,
+  '500': #4db6b1,
+  '600': #46afaa,
+  '700': #3da6a1,
+  '800': #349e98,
+  '900': #258e88,
+  'A100': #cefffc,
+  'A200': #9bfff8,
+  'A400': #68fff5,
+  'A700': #4efff3,
+  'contrastDefaultColor': #ffffff,
+);
+
+$primary: $primary-color;
+$secondary: $secondary-color;
+
+@import 'ember-paper';
+
+.primary-color {
+  background-color: paper-color($primary);
+}
+
+.secondary-color-light {
+  background-color: paper-color($secondary, '400');
+}
+
+.secondary-color {
+  background-color: paper-color($secondary);
+}
+
+.site-side-nav {
+  width: 200px;
+  min-width: 200px;
+  max-width: 200px;
+
+  &-profile {
+    box-shadow: 0 2px 2px -2px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    height: 100%;
+    max-height: 100%;
+
+    .app-name {
+      margin-bottom: 16px;
+      width: 100%;
+      text-align: left;
+      padding-left: 10px;
+    }
+
+    .profile-details {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-start;
+      width: 100%;
+      margin-bottom: 8px;
+      padding-left: 10px;
+
+      .avatar {
+        background-color: paper-color($primary);
+        margin-right: 8px;
+      }
+
+      .name {
+        font-weight: 300;
+        color: paper-color($primary, 'contrastDefaultColor');
+        font-size: 16px;
+      }
+
+      .title {
+        font-weight: 300;
+        color: paper-color($primary, 'contrastDefaultColor');
+        font-size: 12px;
+      }
+    }
+
+    .socials {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+
+  .menu-list {
+    padding: 0;
+  }
+
+  .menu-item {
+    width: 100%;
+    text-align: left;
+    color: paper-color($primary, 'contrastDefaultColor');
+    font-weight: 300;
+    margin: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 8px;
+    margin-bottom: 8px;
+    line-height: 18px;
+  }
+
+  .sub {
+    font-size: 10px;
+    line-height: 24px;
+  }
+
+  .menu-item-active {
+    border-left: 3px solid paper-color($primary, 'contrastDefaultColor');
+
+    div {
+      font-weight: bold;
+    }
+  }
+}
+
+.divider-light {
+  border-top-color: paper-color($secondary, '200');
+}
+
+.divider-dark {
+  border-top-color: paper-color($primary, '300');
+}
+.margin-0 {
+  margin: 0 !important;
+}
+
+.padding-0 {
+  padding: 0 !important;
+}
+
+.default-contrast {
+  color: paper-color($primary, 'contrastDefaultColor');
+}
+
+.show-menu-icon {
+  width: 20px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.main-window {
+  padding: 16px 32px;
+  position: relative;
+
+  .header {
+    color: paper-color($primary, 'contrastDefaultColor');
+    font-weight: 400;
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+  }
+
+  .posts {
+    overflow-y: auto;
+    height: 100%;
+
+    .post {
+      color: paper-color($primary, 'contrastDefaultColor');
+  
+      .md-list-item-inner {
+        padding: 0;
+  
+        .post-title {
+          font-weight: bold !important;
+        }
+    
+        .post-description {
+          font-weight: 300 !important;
+          font-size: 12px !important;
+    
+          .author {
+            color: paper-color($secondary, '300');
+            font-weight: 400;
+          }
+    
+          .separator {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  .fab {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    .paper-icon {
+      color: paper-color($secondary, '900') !important;
+    }
+  }
+}
+
+.details-window {
+  padding: 16px 32px;
+  height: 100%;
+  overflow-y: auto;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    color: paper-color($primary);
+
+    .title {
+      margin: 10px 0;
+    }
+  }
+
+  .details {
+    .md-list-item-inner {
+      padding: 0;
+
+      .post-description {
+        font-weight: 300 !important;
+        font-size: 12px !important;
+        color: paper-color($primary);
+  
+        .date {
+          font-weight: 500;
+        }
+  
+        .author {
+          color: paper-color($secondary, '300');
+          font-weight: 400;
+        }
+      }
+    }
+  }
+
+  .post-content {
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    color: paper-color($primary);
+    line-height: 24px;
+    margin-bottom: 16px;
+  }
+
+  .comments {
+    .md-list-item-inner {
+      padding: 0;
+
+      .post-description {
+        font-weight: 300 !important;
+        font-size: 12px !important;
+        color: paper-color($primary);
+  
+        .date {
+          font-weight: 500;
+        }
+  
+        .author {
+          color: paper-color($secondary, '300');
+          font-weight: 400;
+        }
+      }
+      .post-content {
+        font-weight: 400 !important;
+        font-size: 14px !important;
+        color: paper-color($primary);
+        line-height: 24px;
+        margin-bottom: 16px;
+      }
+    }
+  }
+}
+
