@@ -1,0 +1,16 @@
+<div class="flex-gt-xs-50 flex-100 main-window primary-color">
+  <PaperSidenavToggle @name="left" as |toggleAction|>
+    <PaperButton @classNames="hide-gt-sm show-menu-icon" @iconButton={{true}} @onClick={{action toggleAction}}>
+      {{paper-icon "menu"}}
+    </PaperButton>
+  </PaperSidenavToggle>
+
+  <div class="header">
+    <h2>Works</h2>
+  </div>
+  <PaperDivider class="divider-dark" />
+
+  <Posts />
+
+  <AddNewPost />
+</div>
