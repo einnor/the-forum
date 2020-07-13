@@ -1,59 +1,6 @@
 <PaperSidenavContainer @class="inner-sidenav">
-  <PaperSidenav @class="md-whiteframe-z2 secondary-color site-side-nav" @name="left" @open={{leftSideBarOpen}} @onToggle={{action (mut leftSideBarOpen)}}>
-    <PaperToolbar as |toolbar|>
-      <toolbar.tools @class="secondary-color-light site-side-nav-profile">
-        <div class="app-name">
-          The Forum
-        </div>
-        <div class="profile-details">
-          <div class="avatar">
-            {{paper-icon "person" size=48}}
-          </div>
-          <div>
-            <div class="name">Jane Doe</div>
-            <div class="title">Full member</div>
-          </div>
-        </div>
-        <div class="socials">
-          <PaperButton class="margin-0 padding-0" @iconButton={{true}}>{{paper-icon "chat" size=18}}</PaperButton>
-          <PaperButton class="margin-0 padding-0" @iconButton={{true}}>{{paper-icon "business" size=18}}</PaperButton>
-          <PaperButton class="margin-0 padding-0" @iconButton={{true}}>{{paper-icon "settings" size=18}}</PaperButton>
-          <PaperButton class="margin-0 padding-0" @iconButton={{true}}>{{paper-icon "person" size=18}}</PaperButton>
-        </div>
-      </toolbar.tools>
-    </PaperToolbar>
-    <PaperContent class="secondary-color menu-list" @padding={{true}}>
-      <PaperButton @noink={{true}} @raised={{false}} class="menu-item">
-        <div>News</div>
-        <div class="sub">264 posts</div>
-        <PaperDivider class="divider-light" />
-      </PaperButton>
-      <PaperButton @noink={{true}} @raised={{false}} class="menu-item menu-item-active">
-        <div>Works</div>
-        <div class="sub">352 posts</div>
-        <PaperDivider class="divider-light" />
-      </PaperButton>
-      <PaperButton @noink={{true}} @raised={{false}} class="menu-item">
-        <div>Culture</div>
-        <div class="sub">78 posts</div>
-        <PaperDivider class="divider-light" />
-      </PaperButton>
-      <PaperButton @noink={{true}} @raised={{false}} class="menu-item">
-        <div>General</div>
-        <div class="sub">101 posts</div>
-        <PaperDivider class="divider-light" />
-      </PaperButton>
-      <PaperButton @noink={{true}} @raised={{false}} class="menu-item">
-        <div>Projects</div>
-        <div class="sub">89 posts</div>
-        <PaperDivider class="divider-light" />
-      </PaperButton>
-      <PaperButton @noink={{true}} @raised={{false}} class="menu-item">
-        <div>Support</div>
-        <div class="sub">7 posts</div>
-      </PaperButton>
-    </PaperContent>
-  </PaperSidenav>
+
+  <SideNav />
 
   <PaperCardContent @class="flex">
     <div class="layout-fill layout-align-start-left layout-column" style="height: 100vh">
@@ -201,7 +148,7 @@
             </PaperItem>
             <PaperDivider class="divider-dark" />
             <div style="height: 50px" />
-          </div>            
+          </div>
 
           {{#if showAddPostModal}}
             <PaperDialog @class="flex-gt-xs-50" @fullscreen={{true}} @onClose={{action "closePromptDialog"}} @origin={{dialogOrigin}}>

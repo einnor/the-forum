@@ -56,6 +56,7 @@ $secondary: $secondary-color;
   width: 200px;
   min-width: 200px;
   max-width: 200px;
+  height: 100%;
 
   &-profile {
     box-shadow: 0 2px 2px -2px rgba(0,0,0,0.3);
@@ -184,23 +185,23 @@ $secondary: $secondary-color;
 
     .post {
       color: paper-color($primary, 'contrastDefaultColor');
-  
+
       .md-list-item-inner {
         padding: 0;
-  
+
         .post-title {
           font-weight: bold !important;
         }
-    
+
         .post-description {
           font-weight: 300 !important;
           font-size: 12px !important;
-    
+
           .author {
             color: paper-color($secondary, '300');
             font-weight: 400;
           }
-    
+
           .separator {
             font-size: 14px;
           }
@@ -246,11 +247,11 @@ $secondary: $secondary-color;
         font-weight: 300 !important;
         font-size: 12px !important;
         color: paper-color($primary);
-  
+
         .date {
           font-weight: 500;
         }
-  
+
         .author {
           color: paper-color($secondary, '300');
           font-weight: 400;
@@ -275,11 +276,11 @@ $secondary: $secondary-color;
         font-weight: 300 !important;
         font-size: 12px !important;
         color: paper-color($primary);
-  
+
         .date {
           font-weight: 500;
         }
-  
+
         .author {
           color: paper-color($secondary, '300');
           font-weight: 400;
