@@ -6,21 +6,10 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | post-details-comments', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
+  test('it renders a list of comments', async function(assert) {
+    assert.expect(1);
     await render(hbs`<PostDetailsComments />`);
-
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <PostDetailsComments>
-        template block text
-      </PostDetailsComments>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    
+    assert.dom('.comments').exists();
   });
 });

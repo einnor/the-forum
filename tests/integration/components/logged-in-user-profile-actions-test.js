@@ -7,20 +7,9 @@ module('Integration | Component | logged-in-user-profile-actions', function(hook
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
+    assert.expect(1);
     await render(hbs`<LoggedInUserProfileActions />`);
 
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <LoggedInUserProfileActions>
-        template block text
-      </LoggedInUserProfileActions>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.dom('.profile-action').exists();
   });
 });

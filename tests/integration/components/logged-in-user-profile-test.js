@@ -6,21 +6,12 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | logged-in-user-profile', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
+  test('it renders the avatar, the name and the title of the user', async function(assert) {
+    assert.expect(4);
     await render(hbs`<LoggedInUserProfile />`);
-
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <LoggedInUserProfile>
-        template block text
-      </LoggedInUserProfile>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.dom('.avatar').exists();
+    assert.dom('.name').exists();
+    assert.dom('.title').exists();
+    assert.dom('.socials').exists();
   });
 });

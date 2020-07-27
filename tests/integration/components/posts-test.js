@@ -6,21 +6,10 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | posts', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
+  test('it renders a list of posts', async function(assert) {
+    assert.expect(1);
     await render(hbs`<Posts />`);
-
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <Posts>
-        template block text
-      </Posts>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    
+    assert.dom('.posts').exists();
   });
 });

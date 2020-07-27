@@ -6,21 +6,12 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | side-nav', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
+  test('it renders the sidenav, the nav profile and the menu list', async function(assert) {
+    assert.expect(3);
     await render(hbs`<SideNav />`);
-
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <SideNav>
-        template block text
-      </SideNav>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    
+    assert.dom('.site-side-nav').exists();
+    assert.dom('.site-side-nav-profile').exists();
+    assert.dom('.menu-list').exists();
   });
 });

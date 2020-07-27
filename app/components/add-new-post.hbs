@@ -1,23 +1,25 @@
 {{#if showAddPostModal}}
-  <PaperDialog @class="flex-gt-xs-50" @fullscreen={{true}} @onClose={{action "closePromptDialog"}} @origin={{dialogOrigin}}>
-    <PaperToolbar>
-      <PaperToolbarTools @class="secondary-color-light">
+  <div class="show-add-post-modal">
+    <PaperDialog @class="flex-gt-xs-50" @fullscreen={{true}} @onClose={{action "closePromptDialog"}} @origin={{dialogOrigin}}>
+      <PaperToolbar>
+        <PaperToolbarTools @class="secondary-color-light">
+          <span class="flex"></span>
+          <PaperButton @iconButton={{true}} @onClick={{action "closePromptDialog"}}><PaperIcon @icon="close" /></PaperButton>
+        </PaperToolbarTools>
+      </PaperToolbar>
+      <PaperDialogContent>
+        <h2 class="md-title">Form Title</h2>
+        <PaperInput @placeholder="Title" @autofocus={{true}} @block={{true}} @value={{title}} @onChange={{action (mut title)}} />
+        <PaperInput @placeholder="Compose" @textarea={{true}} @block={{true}} @label="Content" @maxlength={{1000}} @passThru={{hash rows=3 maxRows=3}} @value={{body}} @onChange={{action (mut body)}} />
+      </PaperDialogContent>
+
+      <PaperDialogActions @class="layout-row">
         <span class="flex"></span>
-        <PaperButton @iconButton={{true}} @onClick={{action "closePromptDialog"}}><PaperIcon @icon="close" /></PaperButton>
-      </PaperToolbarTools>
-    </PaperToolbar>
-    <PaperDialogContent>
-      <h2 class="md-title">Form Title</h2>
-      <PaperInput @placeholder="Title" @autofocus={{true}} @block={{true}} @value={{title}} @onChange={{action (mut title)}} />
-      <PaperInput @placeholder="Compose" @textarea={{true}} @block={{true}} @label="Content" @maxlength={{1000}} @passThru={{hash rows=3 maxRows=3}} @value={{body}} @onChange={{action (mut body)}} />
-    </PaperDialogContent>
+        <PaperButton @primary={{true}} @onClick={{action "closePromptDialog"}}>Cancel</PaperButton>
+        <PaperButton @raised={{true}} @primary={{true}} @onClick={{action "savePost" title}}>Save Post</PaperButton>
+      </PaperDialogActions>
 
-    <PaperDialogActions @class="layout-row">
-      <span class="flex"></span>
-      <PaperButton @primary={{true}} @onClick={{action "closePromptDialog"}}>Cancel</PaperButton>
-      <PaperButton @raised={{true}} @primary={{true}} @onClick={{action "savePost" title}}>Save Post</PaperButton>
-    </PaperDialogActions>
-
-  </PaperDialog>
+    </PaperDialog>
+  </div>
 {{/if}}
 <PaperButton class="fab" @raised={{true}} @fab={{true}} @secondary={{true}} onClick={{action (mut showAddPostModal) true}}>{{paper-icon "add"}}</PaperButton>

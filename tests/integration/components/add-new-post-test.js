@@ -1,26 +1,24 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | add-new-post', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
+  test('it renders fab button', async function(assert) {
+    assert.expect(1);
     await render(hbs`<AddNewPost />`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.dom('.fab').exists();
+  });
 
-    // Template block usage:
-    await render(hbs`
-      <AddNewPost>
-        template block text
-      </AddNewPost>
-    `);
+  test('it renders modal when FAB button is clicked', async function(assert) {
+    assert.expect(2);
+    await render(hbs`<AddNewPost />`);
+    assert.dom('.show-add-post-modal').doesNotExist();
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    await click('.fab');
+    assert.dom('.show-add-post-modal').exists();
   });
 });
