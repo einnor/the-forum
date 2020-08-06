@@ -7,11 +7,7 @@
 <div class="header">
   <h2>Works</h2>
 
-{{#each orderBy as |item|}}
-  <PaperButton class="order-by" @iconButton={{true}}  @onClick={{action orderByAsc}}>
-    {{paper-icon item.icon side=18}}
-  </PaperButton>
-{{/each}}
+  <MainScreenOrder />
 
 </div>
 <PaperDivider class="divider-dark" />

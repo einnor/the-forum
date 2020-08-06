@@ -1,0 +1,5 @@
+{{#each orderActions as |item|}}
+  <PaperButton class="order-action" @iconButton={{true}} onClick={{action 'orderBy' @order.name}}>
+    {{paper-icon item.icon side=18}}
+  </PaperButton>
+{{/each}}
