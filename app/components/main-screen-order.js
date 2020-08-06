@@ -4,8 +4,8 @@ import { inject as service } from '@ember/service';
 
 export default Component.extend({
   orderActions: A([
-    { icon: 'expand_less' },
-    { icon: 'expand_more' }
+    { name: 'asc', icon: 'expand_less' },
+    { name: 'desc', icon: 'expand_more' }
   ]),
 
   router: service(),
