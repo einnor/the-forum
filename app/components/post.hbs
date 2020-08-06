@@ -1,8 +1,12 @@
 <PaperItem @class="md-2-line post">
-  <img src="https://place-hold.it/100x100/fff/666" alt="Image placeholder" class="md-avatar">
+  <img src={{@post.authorImageUrl}} alt="Image placeholder" class="md-avatar">
   <div class="md-list-item-text">
-    <h4 class="post-title">Hammock beard marfa mixtape</h4>
-    <div class="post-description">Started by <span class="author">John Doe</span> <span class="separator">&middot;</span> 14 replies <span class="separator">&middot;</span> Last reply 17 hours ago by <span class="author">Jane Doe</span></div>
+    <h4 class="post-title">
+      <LinkTo @route="posts.post.details" @model={{@post.id}}>
+        {{@post.title}}
+      </LinkTo>
+    </h4>
+    <div class="post-description">Started by <span class="author">{{@post.author}}</span> <span class="separator">&middot;</span> {{@post.numberOfReplies}} replies <span class="separator">&middot;</span> Last reply {{@post.lastReply}}  <span class="author">{{@post.lastReplyBy}}</span></div>
   </div>
 </PaperItem>
 <PaperDivider class="divider-dark" />

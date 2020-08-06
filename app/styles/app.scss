@@ -192,6 +192,11 @@ $secondary: $secondary-color;
 
         .post-title {
           font-weight: bold !important;
+
+          a {
+            color: inherit;
+            text-decoration: none;
+          }
         }
 
         .post-description {
