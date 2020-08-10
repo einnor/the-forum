@@ -10,7 +10,7 @@ export default Service.extend({
     { id: 6, name: 'support', numberOfPosts: 64 },
   ],
 
-  async getCategories() {
+  async fetch() {
     try {
       const response = await axios({
         method: 'get',
@@ -27,7 +27,7 @@ export default Service.extend({
     }
   },
 
-  async saveCategory(name) {
+  async save(name) {
     const payload = { name };
     try {
       const response = await axios({
@@ -48,7 +48,7 @@ export default Service.extend({
     }
   },
 
-  async updateCategory(id, name) {
+  async update(id, name) {
     const payload = { name };
     try {
       const response = await axios({
@@ -70,7 +70,7 @@ export default Service.extend({
     }
   },
 
-  async removeCategory(id) {
+  async remove(id) {
     try {
       const response = await axios({
         method: 'delete',
