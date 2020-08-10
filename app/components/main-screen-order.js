@@ -14,4 +14,4 @@ export default Component.extend({
       this.router.transitionTo('posts', { queryParams: { order } });
     }
   }
-})
+});

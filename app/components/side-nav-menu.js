@@ -1,13 +1,8 @@
 import Component from '@ember/component';
-import { A } from '@ember/array';
+import { reads } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
 
 export default Component.extend({
- menuItems: A([
-  { name: 'news', numberOfPosts: 64 },
-  { name: 'works', numberOfPosts: 100 },
-  { name: 'culture', numberOfPosts: 23 },
-  { name: 'general', numberOfPosts: 200 },
-  { name: 'projects', numberOfPosts: 64 },
-  { name: 'support', numberOfPosts: 64 },
- ]),
+  categories: service(),
+  menuItems: reads('categories.list'),
 })
