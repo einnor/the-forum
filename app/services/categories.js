@@ -1,6 +1,8 @@
 import Service from '@ember/service';
+import { inject as service } from '@ember/service';
 
 export default Service.extend({
+  api: service(),
   list: [
     { id: 1, name: 'news', numberOfPosts: 64 },
     { id: 2, name: 'works', numberOfPosts: 100 },
@@ -14,7 +16,7 @@ export default Service.extend({
     try {
       const response = await axios({
         method: 'get',
-        url: 'http://localhost:4000/api/categories',
+        url: `${this.api.baseApiUrl}/categories`,
       });
 
       if (response.status === 200) {
@@ -32,7 +34,7 @@ export default Service.extend({
     try {
       const response = await axios({
         method: 'post',
-        url: 'http://localhost:4000/api/categories',
+        url: `${this.api.baseApiUrl}/categories`,
         data: payload,
       });
 
@@ -53,11 +55,11 @@ export default Service.extend({
     try {
       const response = await axios({
         method: 'put',
-        url: `http://localhost:4000/api/categories/${id}`,
+        url: `${this.api.baseApiUrl}/categories/${id}`,
         data: payload,
       });
 
-      if (response.status === 201) { 
+      if (response.status === 201) {
         const updatedCategory = response.data;
         const categories = this.list;
         const indexOfOldCategory = categories.findIndex(cat => cat.id === id);
@@ -74,7 +76,7 @@ export default Service.extend({
     try {
       const response = await axios({
         method: 'delete',
-        url: `http://localhost:4000/api/categories/${id}`,
+        url: `${this.api.baseApiUrl}/categories/${id}`,
       });
 
       if (response.status === 201) {
