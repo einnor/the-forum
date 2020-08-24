@@ -5,8 +5,7 @@ import { reads } from '@ember/object/computed';
 
 export default Route.extend({
   session: service(),
-  posts: service(),
-  postItems: reads('posts.list'),
+  store: service(),
   queryParams: {
     categoryId: {
       refreshModel: true,
@@ -19,7 +18,11 @@ export default Route.extend({
     }
   },
 
-  model(params) {
-    return this.postItems;
+  async model(params, query) {
+    let posts = [];
+    if (query.to.queryParams.categoryId) {
+      posts = await this.store.query('post', { categoryId: query.to.queryParams.categoryId });
+    }
+    return posts;
   }
 });

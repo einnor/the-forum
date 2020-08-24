@@ -1,5 +1,8 @@
 <PaperItem @class="md-2-line post">
-  <img src={{@post.authorImageUrl}} alt="Image placeholder" class="md-avatar">
+  {{log @post}}
+  {{log @post.category.name}}
+  {{log @post.user.email}}
+  <img src={{@post.user.avatar}} alt="Image placeholder" class="md-avatar">
   <div class="md-list-item-text">
     <h4 class="post-title">
       <LinkTo @route="posts.post.details" @model={{@post.id}}>
