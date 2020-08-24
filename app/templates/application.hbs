@@ -10,16 +10,6 @@
     </PaperCardContent>
   </PaperSidenavContainer>
 {{else}}
-  {{!-- <form {{on "submit" this.authenticate}}>
-    <label for="email">Email</label>
-    <input id='email' placeholder="Enter Email" value={{this.email}} {{on "change" this.updateEmail}}>
-    <label for="password">Password</label>
-    <input id='password' placeholder="Enter Password" value={{this.password}} {{on "change" this.updatePassword}}>
-    <button type="submit">Login</button>
-    {{#if this.errorMessage}}
-      <p>{{this.errorMessage}}</p>
-    {{/if}}
-  </form> --}}
   <div class="layout-column flex-xs flex-gt-xs-50">
     <PaperCard as |card|>
       <card.title as |title|>
