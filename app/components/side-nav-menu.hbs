@@ -1,3 +1,6 @@
 {{#each menuItems as |item|}}
   <SideNavMenuItem @item={{item}}/>
 {{/each}}
+<PaperButton onClick={{action 'invalidateSession'}} @noink={{true}} @raised={{false}} class="menu-item">
+  <div class="item-name">Logout</div>
+</PaperButton>

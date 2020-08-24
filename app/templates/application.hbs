@@ -1,12 +1,40 @@
-<PaperSidenavContainer @class="inner-sidenav">
-
-  <SideNav />
-
-  <PaperCardContent @class="flex">
-    <div class="layout-fill layout-align-start-left layout-column" style="height: 100vh">
-      <div class="layout-row flex">
-        {{outlet}}
+{{#if this.session.isAuthenticated}}
+  <PaperSidenavContainer @class="inner-sidenav">
+    <SideNav />
+    <PaperCardContent @class="flex">
+      <div class="layout-fill layout-align-start-left layout-column" style="height: 100vh">
+        <div class="layout-row flex">
+          {{outlet}}
+        </div>
       </div>
-    </div>
-  </PaperCardContent>
-</PaperSidenavContainer>
+    </PaperCardContent>
+  </PaperSidenavContainer>
+{{else}}
+  {{!-- <form {{on "submit" this.authenticate}}>
+    <label for="email">Email</label>
+    <input id='email' placeholder="Enter Email" value={{this.email}} {{on "change" this.updateEmail}}>
+    <label for="password">Password</label>
+    <input id='password' placeholder="Enter Password" value={{this.password}} {{on "change" this.updatePassword}}>
+    <button type="submit">Login</button>
+    {{#if this.errorMessage}}
+      <p>{{this.errorMessage}}</p>
+    {{/if}}
+  </form> --}}
+  <div class="layout-column flex-xs flex-gt-xs-50">
+    <PaperCard as |card|>
+      <card.title as |title|>
+        <title.text as |text|>
+          <text.headline>Sign In</text.headline>
+        </title.text>
+      </card.title>
+      <card.content>
+        <PaperInput @placeholder="E-mail" @autofocus={{true}} @block={{true}} @type="email" @value={{this.email}} @onChange={{action (mut email)}} />
+        <PaperInput @placeholder="Password" @autofocus={{true}} @block={{true}} @type="password" @value={{this.password}} @onChange={{action (mut password)}} />
+      </card.content>
+      <card.actions>
+        <PaperButton @primary={{true}} @onClick={{action "toggleSignIn"}}>Sign Up</PaperButton>
+        <PaperButton @raised={{true}} @primary={{true}} @onClick={{action "authenticate"}}>Sign in</PaperButton>
+      </card.actions>
+    </PaperCard>
+  </div>
+{{/if}}
