@@ -2,6 +2,7 @@
   {{log @post}}
   {{log @post.category.name}}
   {{log @post.user.email}}
+  {{log @post.user.avatar}}
   <img src={{@post.user.avatar}} alt="Image placeholder" class="md-avatar">
   <div class="md-list-item-text">
     <h4 class="post-title">
@@ -9,7 +10,7 @@
         {{@post.title}}
       </LinkTo>
     </h4>
-    <div class="post-description">Started by <span class="author">{{@post.author}}</span> <span class="separator">&middot;</span> {{@post.numberOfReplies}} replies <span class="separator">&middot;</span> Last reply {{@post.lastReply}}  <span class="author">{{@post.lastReplyBy}}</span></div>
+    <div class="post-description">Started by <span class="author">{{@post.user.firstName}} {{@post.user.lastName}}</span> <span class="separator">&middot;</span> {{@post.numberOfReplies}} replies <span class="separator">&middot;</span> Last reply {{@post.lastReply}}  <span class="author">{{@post.lastReplyBy}}</span></div>
   </div>
 </PaperItem>
 <PaperDivider class="divider-dark" />
