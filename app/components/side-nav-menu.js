@@ -1,15 +1,16 @@
 import Component from '@ember/component';
-import { reads } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 
 export default Component.extend({
   session: service(),
-  categories: service(),
-  menuItems: reads('categories.list'),
+  store: service(),
+  menuItems: [],
 
   async init() {
     this._super(...arguments);
-    await this.categories.fetch();
+    const categories = await this.store.findAll('category');
+    console.log(categories);
+    this.set('menuItems', categories || []);
   },
 
   actions: {
@@ -17,4 +18,4 @@ export default Component.extend({
       this.session.invalidate();
     },
   },
-})
+});
