@@ -1,12 +1,32 @@
-<PaperSidenavContainer @class="inner-sidenav">
+{{#if this.session.isAuthenticated}}
+  <PaperSidenavContainer @class="inner-sidenav">
 
-  <SideNav />
+    <SideNav />
 
-  <PaperCardContent @class="flex">
-    <div class="layout-fill layout-align-start-left layout-column" style="height: 100vh">
-      <div class="layout-row flex">
-        {{outlet}}
+    <PaperCardContent @class="flex">
+      <div class="layout-fill layout-align-start-left layout-column" style="height: 100vh">
+        <div class="layout-row flex">
+          {{outlet}}
+        </div>
       </div>
-    </div>
-  </PaperCardContent>
-</PaperSidenavContainer>
+    </PaperCardContent>
+  </PaperSidenavContainer>
+{{else}}
+  <div class="full-screen-height secondary-color-light">
+    <PaperCard class="layout-column flex-xs flex-gt-xs-50 flex-offset-gt-xs-25 layout-align-center" as |card|>
+      <card.title as |title|>
+        <title.text as |text|>
+          <text.headline>Sign In</text.headline>
+        </title.text>
+      </card.title>
+      <card.content>
+        <PaperInput @placeholder="E-mail" @autofocus={{true}} @block={{true}} @type="email" @value={{this.email}} @onChange={{action (mut email)}} />
+        <PaperInput @placeholder="Password" @autofocus={{true}} @block={{true}} @type="password" @value={{this.password}} @onChange={{action (mut password)}} />
+      </card.content>
+      <card.actions>
+        <PaperButton @primary={{true}} @onClick={{action "toggleSignIn"}}>Sign Up</PaperButton>
+        <PaperButton @raised={{true}} @primary={{true}} @onClick={{action "authenticate"}}>Sign in</PaperButton>
+      </card.actions>
+    </PaperCard>
+  </div>
+{{/if}}

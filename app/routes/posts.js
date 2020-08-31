@@ -3,14 +3,17 @@ import { inject as service } from '@ember/service';
 import { reads } from '@ember/object/computed';
 
 export default Route.extend({
-  posts: service(),
-  postItems: reads('posts.list'),
+  store: service(),
   queryParams: {
     categoryId: {
       refreshModel: true,
     }
   },
-  model(params) {
-    return this.postItems;
+  async model(params, query) {
+    let posts = [];
+    if (query.to.queryParams.categoryId) {
+      posts = await this.store.query('post', { categoryId: query.to.queryParams.categoryId });
+    }
+    return posts;
   }
 })
