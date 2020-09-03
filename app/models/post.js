@@ -5,5 +5,5 @@ export default Model.extend({
   content: attr('string'),
   createdAt: attr('string'),
   category: belongsTo('category'),
-  // user: belongsTo('user', { async: true }),
+  user: belongsTo('user', { async: true }),
 });
