@@ -10,13 +10,13 @@
       <PaperDialogContent>
         <h2 class="md-title">Form Title</h2>
         <PaperInput @placeholder="Title" @autofocus={{true}} @block={{true}} @value={{title}} @onChange={{action (mut title)}} />
-        <PaperInput @placeholder="Compose" @textarea={{true}} @block={{true}} @label="Content" @maxlength={{1000}} @passThru={{hash rows=3 maxRows=3}} @value={{body}} @onChange={{action (mut body)}} />
+        <PaperInput @placeholder="Compose" @textarea={{true}} @block={{true}} @label="Content" @maxlength={{1000}} @passThru={{hash rows=3 maxRows=3}} @value={{content}} @onChange={{action (mut content)}} />
       </PaperDialogContent>
 
       <PaperDialogActions @class="layout-row">
         <span class="flex"></span>
         <PaperButton @primary={{true}} @onClick={{action "closePromptDialog"}}>Cancel</PaperButton>
-        <PaperButton @raised={{true}} @primary={{true}} @onClick={{action "savePost" title}}>Save Post</PaperButton>
+        <PaperButton @raised={{true}} @primary={{true}} @onClick={{action "savePost"}}>Save Post</PaperButton>
       </PaperDialogActions>
 
     </PaperDialog>

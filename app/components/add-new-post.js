@@ -1,15 +1,22 @@
 import Component from '@ember/component';
+import { inject as service } from '@ember/service';
 
 export default Component.extend({
+  router: service(),
+  store: service(),
   showAddPostModal: false,
   title: '',
-  body: '',
+  content: '',
+  categoryId: null,
   actions: {
     closePromptDialog() {
       this.set('showAddPostModal', false);
     },
-    savePost(title) {
-      console.log(title);
+    async savePost() {
+      const categoryId = this.router.currentRoute.queryParams.categoryId;
+      const category = await this.store.peekRecord('category', categoryId)
+      const results = await this.store.createRecord('post', { title: this.title, content: this.content, category }).save();
+      console.log(results);
     },
   },
 });
