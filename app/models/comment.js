@@ -1,5 +1,8 @@
-import Model from '@ember-data/model';
+import Model, { attr, belongsTo } from '@ember-data/model';
 
-export default class CommentModel extends Model {
-
-}
+export default Model.extend({
+  content: attr('string'),
+  createdAt: attr('string'),
+  post: belongsTo('post'),
+  user: belongsTo('user', { async: true })
+});

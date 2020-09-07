@@ -1,6 +1,6 @@
 <div class="comments">
   <PaperSubheader>Comments</PaperSubheader>
-  {{#each (array 1 2 3 4 5) as |comment|}}
-    <PostDetailsComment />
+  {{#each @comments as |comment|}}
+    <PostDetailsComment @comment={{comment}}/>
   {{/each}}
 </div>
