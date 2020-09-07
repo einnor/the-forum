@@ -1,7 +1,9 @@
 import Controller from '@ember/controller';
+import { inject as service } from '@ember/service';
 
 export default Controller.extend({
-  queryParams: ['category', 'order'],
-  category: null,
+  router: service(),
+  queryParams: ['categoryId', 'order'],
+  categoryId: null,
   order: null,
 });

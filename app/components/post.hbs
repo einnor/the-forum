@@ -1,12 +1,20 @@
 <PaperItem @class="md-2-line post">
-  <img src={{@post.authorImageUrl}} alt="Image placeholder" class="md-avatar">
+  <img src={{if (is-empty @post.user.avatar) 'https://place-hold.it/300x500?text=RN&fontsize=128' @post.user.avatar}} alt="Image placeholder" class="md-avatar">
   <div class="md-list-item-text">
     <h4 class="post-title">
       <LinkTo @route="posts.post.details" @model={{@post.id}}>
         {{@post.title}}
       </LinkTo>
     </h4>
-    <div class="post-description">Started by <span class="author">{{@post.author}}</span> <span class="separator">&middot;</span> {{@post.numberOfReplies}} replies <span class="separator">&middot;</span> Last reply {{@post.lastReply}}  <span class="author">{{@post.lastReplyBy}}</span></div>
+    <div class="post-description">
+      Started by
+      <span class="author">{{@post.user.firstName}} {{@post.user.lastName}}</span>
+      <span class="separator">&middot;</span>
+      300 replies
+      <span class="separator">&middot;</span>
+      Last reply 21st August, 2020
+      <span class="author">{{@post.lastReplyBy}}</span>
+    </div>
   </div>
 </PaperItem>
 <PaperDivider class="divider-dark" />
