@@ -3,11 +3,13 @@ import { inject as service } from '@ember/service';
 
 export default Component.extend({
 store: service(),
+router: service(),
 commentList: [],
-//this.set using comments with did receive attribute hook
-async init() {
+
+async init(query) {
   this._super(...arguments);
-  const comments = await this.store.query('comment', { postId: query.to.postId });
+  const postId = this.router.currentRoute.params
+  const comments = await this.store.query('comment', { postId });
   this.set('commentList', comments || []);
   }
 });
