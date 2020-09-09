@@ -1,12 +1,15 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
 
 export default Route.extend({
   model() {
     const post = this.modelFor('posts.post');
-    //const comments = this.modelFor('post.id.comment');
-    //const comments = post.find(comment => comment.id === params.id)
     return post;
-  }
+  },
+  // async model(query) {
+  //   let comments = [];
+  //   if (query.to.postId) {
+  //     comments = await this.store.query('comment', { postId: query.to.postId });
+  //   }
+  //   return comments;
+  // }
 });
-console.log(this.post)
