@@ -2,14 +2,13 @@ import Component from "@ember/component";
 import { inject as service } from '@ember/service';
 
 export default Component.extend({
-store: service(),
-router: service(),
-commentList: [],
+  store: service(),
+  comments: [],
+  postId: null,
 
-async init(query) {
-  this._super(...arguments);
-  const postId = this.router.currentRoute.params
-  const comments = await this.store.query('comment', { postId });
-  this.set('commentList', comments || []);
+  async didReceiveAttrs() {
+    this._super(...arguments);
+    const comments = await this.store.query('comment', { postId: this.postId });
+    this.set('comments', comments || []);
   }
 });
