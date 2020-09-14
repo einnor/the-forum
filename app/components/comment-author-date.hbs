@@ -1,7 +1,8 @@
 <PaperItem @class="md-2-line">
   <img src="https://place-hold.it/100x100/666/fff" alt="Image placeholder" class="md-avatar">
   <div class="md-list-item-text">
-    <div class="post-description"><span class="author">John Doe</span></div>
-    <div class="post-description">on <span class="date">17th January 2015</span></div>
+    <div class="post-description"><span class="author">{{@comment.user.firstName}} {{@comment.user.lastName}}</span></div>
+    <div class="post-description">on <span class="date">{{@comment.createdAt}}</span>
+    </div>
   </div>
 </PaperItem>

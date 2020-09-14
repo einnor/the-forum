@@ -1,9 +1,9 @@
-<PostDetailsHeader />
+<PostDetailsHeader @post={{@post}} />
 
-<PostDetailsAuthorDate />
+<PostDetailsAuthorDate @post={{@post}} />
 
-<PostDetailsContent />
+<PostDetailsContent @post={{@post}} />
 
 <PaperDivider class="divider-dark" />
 
-<PostDetailsComments />
+<PostDetailsComments @postId={{@post.id}} />
