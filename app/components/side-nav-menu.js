@@ -3,9 +3,11 @@ import { reads } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 
 export default Component.extend({
+  router: service(),
   session: service(),
   store: service(),
   menuItems: [],
+  activeCategoryId: reads('router.currentRoute.queryParams.categoryId'),
 
   async init() {
     this._super(...arguments);

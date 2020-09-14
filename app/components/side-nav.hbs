@@ -1,5 +1,5 @@
 <PaperSidenav @class="md-whiteframe-z2 secondary-color site-side-nav" @name="left" @open={{leftSideBarOpen}}
-  @onToggle={{action (mut leftSideBarOpen)}}>
+  @onToggle={{action (mut this.leftSideBarOpen)}}>
   <PaperToolbar as |toolbar|>
     <toolbar.tools @class="secondary-color-light site-side-nav-profile">
       <div class="app-name">

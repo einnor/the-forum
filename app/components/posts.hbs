@@ -1,6 +1,6 @@
 <div class="posts">
   {{#each @posts as |post|}}
-    <Post @post={{post}} />
+    <Post @post={{post}} @activePostId={{this.activePostId}} />
   {{/each}}
 
   <div style="height: 50px" />

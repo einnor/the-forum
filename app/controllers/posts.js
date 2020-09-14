@@ -6,4 +6,5 @@ export default Controller.extend({
   queryParams: ['categoryId', 'order'],
   categoryId: null,
   order: null,
+  category: null,
 });

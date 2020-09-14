@@ -1,4 +1,4 @@
-<PaperButton onClick={{action 'redirectTo' @item.id}} @noink={{true}} @raised={{false}} class="menu-item">
+<PaperButton onClick={{action 'redirectTo' @item.id}} @noink={{true}} @raised={{false}} class="menu-item {{if (eq @item.id @activeCategoryId) "menu-item-active"}}">
   <div class="item-name">{{@item.name}}</div>
   <div class="sub">{{concat @item.numberOfPosts ' posts'}}</div>
   <PaperDivider class="divider-light" />

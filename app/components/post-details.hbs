@@ -1,9 +1,22 @@
-<PostDetailsHeader @post={{@post}} />
-
-<PostDetailsAuthorDate @post={{@post}} />
-
-<PostDetailsContent @post={{@post}} />
+<div class="header">
+  <h4 class="title">{{@post.title}}</h4>
+  <PaperButton @classNames="hide-ls-sm" @iconButton={{true}}>
+    {{paper-icon "close"}}
+  </PaperButton>
+</div>
+<div class="details">
+  <PaperItem @class="md-2-line">
+    <img src={{if (is-empty @post.user.avatar) 'https://place-hold.it/300x500?text=RN&fontsize=128' @post.user.avatar}} alt="Image placeholder" class="md-avatar">
+    <div class="md-list-item-text">
+      <div class="post-description">Started by <span class="author">{{@post.user.firstName}} {{@post.user.lastName}}</span></div>
+      <div class="post-description">on <span class="date">{{@post.createdAt}}</span></div>
+    </div>
+  </PaperItem>
+</div>
+<div class="post-content">
+  {{@post.content}}
+</div>
 
 <PaperDivider class="divider-dark" />
 
-<PostDetailsComments @postId={{@post.id}} />
+<Comments @postId={{@post.id}} />

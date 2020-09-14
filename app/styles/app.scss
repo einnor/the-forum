@@ -214,6 +214,11 @@ $secondary: $secondary-color;
         }
       }
     }
+
+    .post-active {
+      padding-left: 10px;
+      border-left: 3px solid #ffffff;
+    }
   }
 
   .fab {
