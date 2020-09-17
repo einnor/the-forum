@@ -15,7 +15,9 @@ export default Component.extend({
       const postId = this.router.currentRoute.parent.params.id;
       const post = await this.store.peekRecord('post', postId)
       const comment = await this.store.createRecord('comment', { content: this.content, post }).save();
-      this.set('showAddCommentModal', false)
+      this.set('showAddCommentModal', false);
+      this.router.refresh();
+      //Need to refresh the page after saveComment
     },
   },
 });

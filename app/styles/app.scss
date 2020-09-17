@@ -218,9 +218,11 @@ $secondary: $secondary-color;
     .post-active {
       //padding-left: 10px;
       //border-left: 3px solid #ffffff;
+      padding-left: 5px;
+      border-radius: 4px;
       background-color: #5e848c;
-      -webkit-box-shadow: 0px 0px 11px 2px #567c84;
-      margin: 5px 5px;
+      -webkit-box-shadow: 0px 0px 14px 2px #567c84;
+      margin: 8px 8px;
     }
   }
   .paper-icon {
