@@ -16,6 +16,7 @@ export default Component.extend({
       const categoryId = this.router.currentRoute.queryParams.categoryId;
       const category = await this.store.peekRecord('category', categoryId)
       const results = await this.store.createRecord('post', { title: this.title, content: this.content, category }).save();
+      this.set('showAddPostModal', false);
     },
   },
 });

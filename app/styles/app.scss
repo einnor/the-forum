@@ -223,16 +223,15 @@ $secondary: $secondary-color;
       margin: 5px 5px;
     }
   }
+  .paper-icon {
+      color: paper-color($secondary, '900') !important;
+  }
+}
 
-  .fab {
+.fab {
     position: absolute;
     bottom: 0;
-    right: 0;
-
-    .paper-icon {
-      color: paper-color($secondary, '900') !important;
-    }
-  }
+    right: 8px;
 }
 
 .details-window {
