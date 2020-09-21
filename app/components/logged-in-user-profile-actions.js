@@ -3,9 +3,8 @@ import { A } from '@ember/array';
 
 export default Component.extend({
   profileActions: A([
-    { icon: 'chat' },
-    { icon: 'business' },
-    { icon: 'settings' },
     { icon: 'person' },
+    { icon: 'chat' },
+    { icon: 'settings' },
   ])
 })

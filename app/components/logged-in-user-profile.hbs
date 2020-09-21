@@ -1,9 +1,13 @@
 <div class="profile-details">
-  <div class="avatar">
-    {{paper-icon "person" size=48}}
-  </div>
+  {{#if (is-empty this.me.avatar)}}
+    <div class="avatar">
+      {{paper-icon "person" size=48}}
+    </div>
+  {{else}}
+    <img src={{this.me.avatar}} alt="Image placeholder" class="logged-in-user-profile-avatar">
+  {{/if}}
   <div>
-    <div class="name">Jane Doe</div>
+    <div class="name">{{this.me.firstName}} {{this.me.lastName}}</div>
     <div class="title">Full member</div>
   </div>
 </div>

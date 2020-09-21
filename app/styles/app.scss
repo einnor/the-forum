@@ -87,6 +87,11 @@ $secondary: $secondary-color;
         margin-right: 8px;
       }
 
+      .logged-in-user-profile-avatar {
+        width: 48px;
+        margin-right: 8px;
+      }
+
       .name {
         font-weight: 300;
         color: paper-color($primary, 'contrastDefaultColor');
