@@ -1,0 +1,29 @@
+{{#if showAddCommentModal}}
+  <div class="show-add-comment-modal">
+    <PaperDialog @class="flex-gt-xs-50" @fullscreen={{true}} @onClose={{action "closePromptDialog"}}
+      @origin={{dialogOrigin}}>
+      <PaperToolbar>
+        <PaperToolbarTools @class="secondary-color-light">
+          <span class="flex"></span>
+          <PaperButton @iconButton={{true}} @onClick={{action "closePromptDialog"}}>
+            <PaperIcon @icon="close" />
+          </PaperButton>
+        </PaperToolbarTools>
+      </PaperToolbar>
+      <PaperDialogContent>
+        <h2 class="md-title">Add your comment</h2>
+        <PaperInput @placeholder="Compose" @textarea={{true}} @block={{true}} @label="Content" @maxlength={{1000}}
+          @passThru={{hash rows=3 maxRows=3}} @value={{content}} @onChange={{action (mut content)}} />
+      </PaperDialogContent>
+
+      <PaperDialogActions @class="layout-row">
+        <span class="flex"></span>
+        <PaperButton @primary={{true}} @onClick={{action "closePromptDialog"}}>Cancel</PaperButton>
+        <PaperButton @raised={{true}} @primary={{true}} @onClick={{action "saveComment"}}>Save Comment</PaperButton>
+      </PaperDialogActions>
+    </PaperDialog>
+  </div>
+{{/if}}
+
+<PaperButton class="fab" @raised={{true}} @fab={{true}} @primary={{true}} onClick={{action (mut showAddCommentModal) true}}>{{paper-icon "add"}}</PaperButton>
+
