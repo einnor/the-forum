@@ -7,12 +7,6 @@ export default Component.extend({
   comments: [],
   postId: null,
 
-  async didReceiveAttrs() {
-    this._super(...arguments);
-    const comments = await this.store.query('comment', { postId: this.postId });
-    this.set('comments', comments.toArray() || []);
-  },
-
   @action
   async createComment(content) {
     const post = await this.store.peekRecord('post', this.postId)
