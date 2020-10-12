@@ -352,3 +352,26 @@ $secondary: $secondary-color;
   justify-content: center;
 }
 
+.error-state-wrapper {
+  width: 100%;
+  height: 40px;
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: rgb(253, 236, 234);
+  margin: 8px;
+  border-radius: 2px;
+
+  .error-state-icon {
+    margin-right: 5px;
+    color: #f44336;
+  }
+
+  .error-state-message {
+    color: rgb(97, 26, 21);
+    width: 100%;
+  }
+}
+
