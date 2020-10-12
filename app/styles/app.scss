@@ -175,6 +175,14 @@ $secondary: $secondary-color;
   position: relative;
   height: 100%;
 
+  .order-action {
+    background-color: paper-color($primary, 'contrastDefaultColor');
+    margin-bottom: 6px;
+    &:hover, &:focus {
+    background-color: paper-color($primary, '100') !important;
+    }
+  }
+
   .header {
     color: paper-color($primary, 'contrastDefaultColor');
     font-weight: 400;
