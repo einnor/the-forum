@@ -7,17 +7,18 @@ export default Component.extend({
   showAddPostModal: false,
   title: '',
   content: '',
-  categoryId: null,
+
   actions: {
     closePromptDialog() {
       this.set('showAddPostModal', false);
     },
     async savePost() {
-      const categoryId = this.router.currentRoute.queryParams.categoryId;
-      const category = await this.store.peekRecord('category', categoryId)
-      const results = await this.store.createRecord('post', { title: this.title, content: this.content, category }).save();
-      this.set('showAddPostModal', false);
-      //Need to refresh the page after savePost
+      await this.createPost(this.title, this.content);
+      this.setProperties({
+        title: '',
+        content: '',
+        showAddPostModal: false
+      });
     },
   },
 });

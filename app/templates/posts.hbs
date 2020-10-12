@@ -13,9 +13,9 @@
   </div>
   <PaperDivider class="divider-dark" />
 
-  <Posts @posts={{@model}} />
+  <Posts @posts={{this.posts}} />
 
-  <AddNewPost />
+  <AddNewPost @createPost={{this.createPost}} />
 </div>
 
 {{outlet}}
