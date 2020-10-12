@@ -3,5 +3,5 @@
   {{#each this.comments as |comment|}}
     <Comment @comment={{comment}} />
   {{/each}}
-  <AddNewComment />
+  <AddNewComment @createComment={{this.createComment}} />
 </div>
