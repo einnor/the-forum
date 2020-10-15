@@ -213,6 +213,13 @@ $secondary: $secondary-color;
       .md-list-item-inner {
         padding: 0;
 
+        button.delete-icon {
+          visibility: hidden;
+
+          .active {
+            visibility: visible;
+          }
+        }
         .post-title {
           font-weight: bold !important;
 
