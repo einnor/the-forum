@@ -5,6 +5,12 @@
     <div class="post-description">on <span class="date">{{format-date @comment.createdAt}}</span>
     </div>
   </div>
+  <PaperButton
+  class="delete-icon {{if (eq @comment.user @getMe) "active"}}"
+  @iconButton={{true}}
+  {{on "click" @deleteCommentbyId}}>
+  {{paper-icon "delete-outline"}}
+  </PaperButton>
 </PaperItem>
 <div class="post-content">
   {{@comment.content}}

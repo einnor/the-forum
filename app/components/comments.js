@@ -4,8 +4,10 @@ import { action } from '@ember/object';
 
 export default Component.extend({
   store: service(),
+
   comments: [],
   postId: null,
+  commentId: null,
 
   @action
   async createComment(content) {
@@ -13,4 +15,11 @@ export default Component.extend({
     const comment = await this.store.createRecord('comment', { content: content, post }).save();
     this.comments.unshiftObject(comment);
   },
+
+  @action
+  async deleteCommentById() {
+    const comment = await this.store.peekRecord('comment', this.commentId)
+    comment.destroyRecord()
+    this.comments.map(comment);
+  }
 });

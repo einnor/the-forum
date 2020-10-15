@@ -9,4 +9,5 @@ export default Model.extend({
   createdAt: attr('string'),
   updatedAt: attr('string'),
   posts: hasMany('post'),
+  comments: hasMany('comment'),
 });
