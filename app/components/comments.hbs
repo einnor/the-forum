@@ -1,7 +1,7 @@
 <div class="comments">
   <PaperSubheader>Comments</PaperSubheader>
   {{#each this.comments as |comment|}}
-    <Comment @comment={{comment}} />
+    <Comment @comment={{comment}} @deleteCommentById={{this.deleteCommentById}} />
   {{/each}}
   <AddNewComment @createComment={{this.createComment}} />
 </div>
