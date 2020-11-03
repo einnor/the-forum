@@ -2,6 +2,9 @@
   {{#each @posts as |post|}}
     <Post @post={{post}} @activePostId={{this.activePostId}} @goToPostDetails={{this.goToPostDetails}} />
   {{/each}}
+  {{log @posts.meta}}
+
+  <Pagination @meta={{@meta}} />
 
   <div style="height: 50px" />
 </div>

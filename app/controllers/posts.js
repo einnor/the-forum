@@ -6,10 +6,12 @@ import { action } from '@ember/object';
 export default Controller.extend({
   router: service(),
   store: service(),
-  queryParams: ['categoryId', 'order'],
+  queryParams: ['categoryId', 'page'],
   categoryId: null,
-  order: null,
+  // order: 'desc',
+  page: 1,
   category: null,
+  meta: null,
 
   @action
   async createPost(title, content) {

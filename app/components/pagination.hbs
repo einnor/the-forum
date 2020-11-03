@@ -1,0 +1,9 @@
+<nav data-pagination>
+  <PaperButton @iconButton={{true}}>{{paper-icon "chevron-left" size=24 class="pagination-icon"}}</PaperButton>
+  <ul>
+    {{#each this.pages as |page|}}
+    <li class="{{if (eq this.currentPage page) 'active'}}" {{on "click" (fn onClick page)}}><a href="javascript: void(0)">{{page}}</a></li>
+    {{/each}}
+  </ul>
+  <PaperButton @iconButton={{true}}>{{paper-icon "chevron-right" size=24 class="pagination-icon"}}</PaperButton>
+</nav>
