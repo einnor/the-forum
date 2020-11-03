@@ -8,7 +8,7 @@
   <PaperButton
   class="delete-icon {{if (eq @comment.user @getMe) "active"}}"
   @iconButton={{true}}
-  {{on "click" @deleteCommentbyId}}>
+  {{on "click" (fn @deleteCommentById @comment.id)}}>
   {{paper-icon "delete-outline"}}
   </PaperButton>
 </PaperItem>

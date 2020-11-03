@@ -17,9 +17,12 @@ export default Component.extend({
   },
 
   @action
-  async deleteCommentById() {
-    const comment = await this.store.peekRecord('comment', this.commentId)
-    comment.destroyRecord()
-    this.comments.map(comment);
+  async deleteCommentById(commentId) {
+    const comment = await this.store.peekRecord('comment', commentId)
+    await comment.destroyRecord();
+    const comments = this.comments.filter((item) => {
+      return item.id !== comment.id
+    });
+    this.set('comments', comments);
   }
 });
