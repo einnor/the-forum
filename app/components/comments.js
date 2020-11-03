@@ -13,7 +13,11 @@ export default Component.extend({
   async createComment(content) {
     const post = await this.store.peekRecord('post', this.postId)
     const comment = await this.store.createRecord('comment', { content: content, post }).save();
+    //const comments = this.comments
+    //comments.unshift(comment);
     this.comments.unshiftObject(comment);
+    //this.set('comments', comments);
+    this.notifyPropertyChange('comments')
   },
 
   @action

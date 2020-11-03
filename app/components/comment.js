@@ -5,6 +5,7 @@ import { action } from '@ember/object';
 
 export default class CommentComponent extends Component {
   @service store;
+  @service session;
 
   @tracked me;
 

@@ -5,12 +5,15 @@
     <div class="post-description">on <span class="date">{{format-date @comment.createdAt}}</span>
     </div>
   </div>
-  <PaperButton
-  class="delete-icon {{if (eq @comment.user @getMe) "active"}}"
-  @iconButton={{true}}
-  {{on "click" (fn @deleteCommentById @comment.id)}}>
-  {{paper-icon "delete-outline"}}
-  </PaperButton>
+  {{#if (eq this.session.data.authenticated.email @comment.user.email)}}
+    <PaperButton
+    class="delete-icon"
+    @iconButton={{true}}
+    {{on "click" (fn @deleteCommentById @comment.id)}}>
+    {{paper-icon "delete-outline"}}
+    {{log this.session}}
+    </PaperButton>
+  {{/if}}
 </PaperItem>
 <div class="post-content">
   {{@comment.content}}
